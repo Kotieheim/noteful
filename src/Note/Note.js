@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Note.css";
+import PropTypes from "prop-types";
 
 class Note extends React.Component {
   render() {
@@ -34,3 +35,10 @@ class Note extends React.Component {
   }
 }
 export default withRouter(Note);
+
+Note.proptypes = {
+  modified: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string.name,
+  handleDelete: PropTypes.func
+};

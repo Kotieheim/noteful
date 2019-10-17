@@ -3,6 +3,7 @@ import Note from "../Note/Note";
 import "./NotePageMain.css";
 import ApiContext from "../ApiContext";
 import { findNote } from "../notes-helpers";
+import PropTypes from "prop-types";
 
 export default class NotePageMain extends React.Component {
   static contextType = ApiContext;
@@ -31,4 +32,8 @@ NotePageMain.defaultProps = {
   note: {
     content: ""
   }
+};
+
+NotePageMain.propTypes = {
+  noteId: PropTypes.string
 };
