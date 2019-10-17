@@ -11,6 +11,7 @@ import config from "../config";
 import ApiContext from "../ApiContext";
 import { findNote, findFolder } from "../notes-helpers";
 import "./App.css";
+import NoteErrorHandler from "../NoteErrorHandler";
 
 class App extends Component {
   state = {
@@ -165,15 +166,18 @@ class App extends Component {
         }}
       >
         <div className="App">
-          <nav className="App__nav">{this.renderNavRoutes()}</nav>
+          <NoteErrorHandler>
+            <nav className="App__nav">{this.renderNavRoutes()}</nav>
+          </NoteErrorHandler>
           <header className="App__header">
             <h1>
               <Link to="/">Noteful</Link>{" "}
               <FontAwesomeIcon icon="check-double" />
             </h1>
           </header>
-
-          <main className="App__main">{this.renderMainRoutes()}</main>
+          <NoteErrorHandler>
+            <main className="App__main">{this.renderMainRoutes()}</main>
+          </NoteErrorHandler>
         </div>
       </ApiContext.Provider>
     );
